@@ -6,10 +6,10 @@ MatAI_Benchmark 是一款面向 **材料学（Materials Science）** 场景的�
 ## 特性
 
 - **多模型支持**
-  - 同时支持 GNN（GCN、GraphSAGE、GAT、GIN 等）、Transformer、Diffusion 等模型结构。
+  - 同时支持 GNN（CGCNN、MEGNet、M3GNet 等）、CrystalFormer 等模型结构。
   - 在材料学特定场景（如晶体结构、分子结构等）下，为多种深度学习模型提供统一的接口与示例。
 - **材料学场景优化**
-  - 提供了材料学数据处理示例，兼容多种材料学数据格式（如 CIF、POSCAR、XYZ 等）。
+  - 提供了材料学数据处理示例，兼容多种材料学数据格式（如 CIF、pikcle、XYZ 等）。
   - 针对材料结构的特点，支持自定义的图表示方法与评估指标。
 - **统一的实验框架**
   - 参考并扩展 shchur/gnn-benchmark 的设计思路，拥有便于管理的脚本与配置文件结构。
@@ -22,8 +22,8 @@ MatAI_Benchmark 是一款面向 **材料学（Materials Science）** 场景的�
 
 ## 目录结构
 
-```
-bash复制编辑MatAI_Benchmark/
+```bash
+MatAI_Benchmark/
 │
 ├── datasets/                # 存放数据相关的脚本、下载及转换工具
 │   ├── __init__.py
@@ -65,20 +65,16 @@ bash复制编辑MatAI_Benchmark/
 
 1. **克隆仓库：**
 
-   ```
-   bash复制编辑git clone https://github.com/xiafyjck/MatAI_Benchmark.git
+```bash
+   git clone https://github.com/xiafyjck/MatAI_Benchmark.git
    cd MatAI_Benchmark
-   ```
+```
 
 2. **安装 Python 依赖：**
 
-   ```
-   bash
-   
-   
-   复制编辑
+```bash
    pip install -r requirements.txt
-   ```
+```
 
    - 如果有其他依赖需求，可修改/扩充 `requirements.txt`。
 
@@ -95,37 +91,33 @@ bash复制编辑MatAI_Benchmark/
 
 1. **准备数据：**
 
-   ```
-   bash
-   
-   
-   复制编辑
+```bash
    python scripts/prepare_data.py --dataset_name dataset_X
-   ```
+```
 
    此脚本会自动下载或转换 `dataset_X` 并放在 `datasets/dataset_X/` 下。
 
 2. **训练模型：**
 
-   ```
-   bash复制编辑python scripts/train.py \
+```bash
+   python scripts/train.py \
        --model gcn \
        --dataset dataset_X \
        --config configs/default_config.yaml \
        --epochs 50 \
        --batch_size 32
-   ```
+```
 
    - 该命令会启动 GCN 模型的训练，具体模型日志与结果会保存在配置文件中指定的输出目录（默认在 `./runs` 或类似路径）。
    - 你可以通过传递更多参数或修改配置文件，来选择其他模型（如 `transformer`、`diffusion_model` 等），或者调整超参数。
 
 3. **评估模型：**
 
-   ```
-   bash复制编辑python scripts/evaluate.py \
+```bash
+   python scripts/evaluate.py \
        --model_path path/to/model_checkpoint.pt \
        --dataset dataset_X
-   ```
+```
 
    此脚本会加载训练好的模型权重，并在验证集/测试集上评估其性能。
 
