@@ -66,7 +66,7 @@ bash复制编辑MatAI_Benchmark/
 1. **克隆仓库：**
 
    ```
-   bash复制编辑git clone https://github.com/YourUserName/MatAI_Benchmark.git
+   bash复制编辑git clone https://github.com/xiafyjck/MatAI_Benchmark.git
    cd MatAI_Benchmark
    ```
 
@@ -156,7 +156,7 @@ bash复制编辑MatAI_Benchmark/
 
 ## 贡献指南
 
-我们非常欢迎社区通过 [Issues](https://github.com/YourUserName/MatAI_Benchmark/issues) 与 [Pull Requests](https://github.com/YourUserName/MatAI_Benchmark/pulls) 提出问题、提交改进或贡献新的数据集、模型和功能。任何疑问与建议都可以在 issue 中讨论。
+我们非常欢迎社区通过 [Issues](https://github.com/xiafyjck/MatAI_Benchmark/issues) 与 [Pull Requests](https://github.com/xiafyjck/MatAI_Benchmark/pulls) 提出问题、提交改进或贡献新的数据集、模型和功能。任何疑问与建议都可以在 issue 中讨论。
 
 请在提交 Pull Request 前，确保遵循以下流程：
 
