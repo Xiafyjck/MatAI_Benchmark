@@ -19,6 +19,22 @@ from cgcnn.crossval_data import PklData
 from cgcnn.crossval_data import collate_pool, get_train_val_test_loader
 from cgcnn.model import CrystalGraphConvNet
 
+def set_random_seed(random_seed):
+    random.seed(random_seed)
+    np.random.seed(random_seed)
+    torch.utils.deterministic.fill_uninitialized_memory = True
+    torch.use_deterministic_algorithms(True, warn_only=True)
+    torch.manual_seed(random_seed)
+    torch.cuda.manual_seed(random_seed)
+    torch.cuda.manual_seed_all(random_seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+set_random_seed(400)
+mp.set_start_method('spawn', force=True)
+print(torch.cuda.is_available())  
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  
+
 parser = argparse.ArgumentParser(description='Crystal Graph Convolutional Neural Networks')
 parser.add_argument('data_options', metavar='OPTIONS', nargs='+',
                     help='dataset options, started with the path to root dir, '
