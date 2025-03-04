@@ -19,6 +19,14 @@ from cgcnn.crossval_data import PklData
 from cgcnn.crossval_data import collate_pool, get_train_val_test_loader
 from cgcnn.model import CrystalGraphConvNet
 
+from config.config import cgcnn_xie_config
+config = cgcnn_xie_config()
+
+from scripts.reproducibility import set_random_seed
+set_random_seed(config.seed)
+
+
+
 parser = argparse.ArgumentParser(description='Crystal Graph Convolutional Neural Networks')
 parser.add_argument('data_options', metavar='OPTIONS', nargs='+',
                     help='dataset options, started with the path to root dir, '
